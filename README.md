@@ -16,6 +16,7 @@ For the brave:
 ## Main Packages
 
 * Chrome
+* Docker
 * .NET for linux (dotnet-sdk-2.0.0)
 * Visual Studio Code
 * Node/npm/yarn

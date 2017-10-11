@@ -17,11 +17,17 @@ apt-get update -y
 #apt-get upgrade -y
 
 echo "Some essentials..."
-apt-get install -y curl wget git xclip
+apt-get install -y curl wget git xclip \
+  apt-transport-https ca-certificates software-properties-common
 
 # Chrome setup
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+
+# Docker setup
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
 # ASP.net setup
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
@@ -42,6 +48,15 @@ apt-get update -y
 
 echo "Install Chrome..."
 apt-get install -y google-chrome-stable
+
+echo "Install Docker..."
+# https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
+apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual docker-ce
+
+# adds the cuurent user who is sudo'ing to a docker group:
+groupadd docker
+usermod -aG docker $USER
+service docker restart
 
 echo "Install ASP.NET and VS Code..."
 apt-get install -y dotnet-sdk-2.0.0 code
@@ -72,5 +87,8 @@ ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
 # now go to https://github.com/settings/keys
+
+# also check docker... you may need to login again for groups to sort out
+# try >> docker run hello-world
 
 EOF
