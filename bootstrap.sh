@@ -82,7 +82,7 @@ git config --global user.name "Your Name"
 
 ssh-keygen -t rsa -b 4096 -C "you@example.com"
 
-eval "$(ssh-agent -s)"
+eval "\$(ssh-agent -s)"
 ssh-add ~/.ssh/id_rsa
 xclip -sel clip < ~/.ssh/id_rsa.pub
 
@@ -90,5 +90,8 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 # also check docker... you may need to login again for groups to sort out
 # try >> docker run hello-world
+
+# also, consider running:
+sudo apt autoremove
 
 EOF
