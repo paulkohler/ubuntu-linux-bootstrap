@@ -66,11 +66,8 @@ cat << EOF
 # now....
 
 code --install-extension ms-vscode.csharp
-code --install-extension donjayamanne.python
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension HookyQR.beautify
-code --install-extension lukehoban.go
-code --install-extension PeterJausovec.vscode-docker
 code --list-extensions
 
 git config --global user.email "you@example.com"
