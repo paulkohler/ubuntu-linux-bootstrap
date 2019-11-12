@@ -18,52 +18,48 @@ apt-get update -y
 
 echo "Some essentials..."
 apt-get install -y curl wget git xclip \
-  apt-transport-https ca-certificates software-properties-common
+  apt-transport-https ca-certificates gnupg-agent build-essential software-properties-common
 
 # Chrome setup
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
 
-# Docker setup
+apt-get install -y google-chrome-stable
+
+# Docker setup - https://docs.docker.com/install/linux/docker-ce/ubuntu/
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+apt-key fingerprint 0EBFCD88
 add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-# ASP.net setup
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
+# ASP.net setup - https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/sdk-3.0.100
+wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
 
-# VS Code setup
-sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+add-apt-repository universe
+apt-get update -y
+# apt-get install apt-transport-https
+# apt-get update -y
+apt-get install dotnet-sdk-3.0
 
-# Node setup
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+# VS Code setup - https://code.visualstudio.com/docs/setup/linux
+sudo snap install --classic code
 
-# Yarn setup
+# Node setup - https://github.com/nodesource/distributions/blob/master/README.md
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+apt-get install -y nodejs
+
+# Yarn setup - https://yarnpkg.com/lang/en/docs/install/#debian-stable
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 apt-get update -y
-
-echo "Install Chrome..."
-apt-get install -y google-chrome-stable
-
-echo "Install Docker..."
-# https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/
-apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual docker-ce
+apt install yarn -y
 
 # adds the cuurent user who is sudo'ing to a docker group:
 groupadd docker
 usermod -aG docker $USER
 service docker restart
-
-echo "Install ASP.NET and VS Code..."
-apt-get install -y dotnet-sdk-2.0.0 code
-
-
-echo "Node etc"
-apt-get install -y nodejs npm yarn build-essential
 
 cat << EOF
 
@@ -95,3 +91,4 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 sudo apt autoremove
 
 EOF
+
