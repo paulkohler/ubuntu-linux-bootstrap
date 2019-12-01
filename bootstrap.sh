@@ -31,7 +31,7 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 apt-key fingerprint 0EBFCD88
 add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-apt-get install docker-ce docker-ce-cli containerd.io
+apt-get install -y docker-ce docker-ce-cli containerd.io
 
 # ASP.net setup - https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/sdk-3.0.100
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
@@ -41,7 +41,7 @@ add-apt-repository universe
 apt-get update -y
 # apt-get install apt-transport-https
 # apt-get update -y
-apt-get install dotnet-sdk-3.0
+apt-get install -y dotnet-sdk-3.0
 
 # VS Code setup - https://code.visualstudio.com/docs/setup/linux
 sudo snap install --classic code
@@ -89,4 +89,3 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 sudo apt autoremove
 
 EOF
-
