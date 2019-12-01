@@ -10,10 +10,6 @@ By no means exhastive and has a .NET flavour to it, run as root, have a coffee:
 
     sudo ./bootstrap.sh
 
-For the brave:
-
-    curl -s https://raw.githubusercontent.com/paulkohler/ubuntu-linux-bootstrap/master/bootstrap.sh | sudo -E bash -
-
 ## Main Packages
 
 * Chrome
@@ -23,3 +19,15 @@ For the brave:
 * Node/npm/yarn
 
 Reminders about git setup etc
+
+---
+
+## Notes
+
+For docker, you will most likely need to log out. Sometimes I have had the "new terminal" be sufficient but typically it is easiest to log out and back in.
+
+If you are running this in a VM of sorts you may need to disable the GPU when running VS Code for it to work happily:
+
+   code --disable-gpu
+
+> https://code.visualstudio.com/docs/supporting/FAQ#_vs-code-is-blank
