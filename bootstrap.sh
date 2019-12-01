@@ -10,6 +10,7 @@ fi
 # https://code.visualstudio.com/docs/setup/linux
 # https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions
 # https://yarnpkg.com/lang/en/docs/install/
+# https://golang.org/doc/install#tarball
 
 echo "Update and upgrade all the things..."
 
@@ -50,12 +51,26 @@ sudo snap install --classic code
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 apt-get install -y nodejs
 
+# build tools
+apt-get install -y gcc g++ make
+
 # Yarn setup - https://yarnpkg.com/lang/en/docs/install/#debian-stable
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 
 apt-get update -y
 apt install yarn -y
+
+# Go
+VERSION=1.13.4
+OS=linux
+ARCH=amd64
+wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz -O /tmp/go$VERSION.$OS-$ARCH.tar.gz
+tar -C /usr/local -xzf /tmp/go$VERSION.$OS-$ARCH.tar.gz
+
+echo '
+export PATH=$PATH:/usr/local/go/bin
+' >> ~/.profile
 
 # adds the cuurent user who is sudo'ing to a docker group:
 groupadd docker
@@ -67,6 +82,7 @@ cat << EOF
 # now....
 
 code --install-extension ms-vscode.csharp
+code --install-extension ms-vscode.go
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension HookyQR.beautify
 code --list-extensions

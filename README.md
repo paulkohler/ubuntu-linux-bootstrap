@@ -14,8 +14,9 @@ By no means exhastive and has a .NET flavour to it, run as root, have a coffee:
 
 * Chrome
 * Docker
-* .NET Core
 * Visual Studio Code
+* .NET Core
+* Go
 * Node/npm/yarn
 
 Reminders about git setup etc
@@ -24,10 +25,18 @@ Reminders about git setup etc
 
 ## Notes
 
+### Docker
+
 For docker, you will most likely need to log out. Sometimes I have had the "new terminal" be sufficient but typically it is easiest to log out and back in.
+
+### VS Code
 
 If you are running this in a VM of sorts you may need to disable the GPU when running VS Code for it to work happily:
 
     code --disable-gpu
 
 > https://code.visualstudio.com/docs/supporting/FAQ#_vs-code-is-blank
+
+### Go
+
+If using VS Code (assuming you installed the suggested extensions such as `ms-vscode.go`) run the helper command "install all tools" to get the rest of the Golang goodies.
