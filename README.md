@@ -28,6 +28,6 @@ For docker, you will most likely need to log out. Sometimes I have had the "new 
 
 If you are running this in a VM of sorts you may need to disable the GPU when running VS Code for it to work happily:
 
-   code --disable-gpu
+    code --disable-gpu
 
 > https://code.visualstudio.com/docs/supporting/FAQ#_vs-code-is-blank
