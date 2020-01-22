@@ -74,7 +74,7 @@ export PATH=$PATH:/usr/local/go/bin
 
 # adds the cuurent user who is sudo'ing to a docker group:
 groupadd docker
-usermod -aG docker $USER
+usermod -aG docker $SUDO_USER
 service docker restart
 
 cat << EOF
