@@ -42,7 +42,7 @@ rm packages-microsoft-prod.deb
 
 add-apt-repository universe
 apt-get update -y
-apt-get install -y dotnet-sdk-3.0
+apt-get install -y dotnet-sdk-3.1
 
 # VS Code setup - https://code.visualstudio.com/docs/setup/linux
 sudo snap install --classic code
