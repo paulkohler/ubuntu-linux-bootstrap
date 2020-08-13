@@ -70,7 +70,7 @@ apt-get update -y
 apt install yarn -y
 
 # Go
-VERSION=1.14.2
+VERSION=1.15
 OS=linux
 ARCH=amd64
 wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz -O /tmp/go$VERSION.$OS-$ARCH.tar.gz
