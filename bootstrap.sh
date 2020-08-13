@@ -53,6 +53,9 @@ apt-get install -y dotnet-sdk-3.1
 sudo snap install --classic code
 
 # Node setup - https://github.com/nodesource/distributions/blob/master/README.md
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+apt-get install -y nodejs
+
 curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 apt-get install -y nodejs
 
