@@ -2,18 +2,20 @@
 
 Script for getting a ubuntu box into dev mode from new install to useful in ~10 minutes...
 
+> Do note that it is best-effort and by no means definitive, these things are hard to test! I just update things when I am doing a new build etc and some issues I spot fix, others are missed...
+
 ## Simple Bootstrap
 
-A recent build of Ubuntu 16.04.3 LTS (now 18) gave rise to the need for a few tools etc.
+A recent build of Ubuntu (at first 16, then 18, and now 20) gave rise to the need for a few tools etc.
 
-By no means exhastive and has a .NET flavour to it, run as root, have a coffee:
+By no means exhaustive, run as root, have a coffee:
 
     sudo ./bootstrap.sh
 
 ## Main Packages
 
 * Chrome
-* Docker
+* Docker, Docker Compose
 * Visual Studio Code
 * .NET Core
 * Go
