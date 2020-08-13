@@ -41,4 +41,4 @@ If you are running this in a VM of sorts you may need to disable the GPU when ru
 
 ### Go
 
-If using VS Code (assuming you installed the suggested extensions such as `ms-vscode.go`) run the helper command "install all tools" to get the rest of the Golang goodies.
+If using VS Code (assuming you installed the suggested extensions such as `golang.go`) run the helper command "GO: Install/Update tools" to get the rest of the Golang goodies.

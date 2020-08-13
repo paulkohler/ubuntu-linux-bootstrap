@@ -91,7 +91,7 @@ cat << EOF
 # now....
 
 code --install-extension ms-vscode.csharp
-code --install-extension ms-vscode.go
+code --install-extension golang.go
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension HookyQR.beautify
 code --list-extensions
