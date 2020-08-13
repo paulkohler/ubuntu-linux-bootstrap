@@ -35,6 +35,10 @@ add-apt-repository \
 apt-get update -y
 apt-get install -y docker-ce docker-ce-cli containerd.io
 
+# Docker Compose - https://docs.docker.com/compose/install/#install-compose-on-linux-systems
+curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+
 # ASP.net setup - https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/sdk-3.0.100
 wget -q https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
 dpkg -i packages-microsoft-prod.deb
@@ -62,7 +66,7 @@ apt-get update -y
 apt install yarn -y
 
 # Go
-VERSION=1.13.4
+VERSION=1.14.2
 OS=linux
 ARCH=amd64
 wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz -O /tmp/go$VERSION.$OS-$ARCH.tar.gz
@@ -76,6 +80,7 @@ export PATH=$PATH:/usr/local/go/bin
 groupadd docker
 usermod -aG docker $SUDO_USER
 service docker restart
+# note that typically you still need a logout/login for docker to work...
 
 cat << EOF
 
