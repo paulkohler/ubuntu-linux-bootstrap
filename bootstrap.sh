@@ -76,9 +76,10 @@ ARCH=amd64
 wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz -O /tmp/go$VERSION.$OS-$ARCH.tar.gz
 tar -C /usr/local -xzf /tmp/go$VERSION.$OS-$ARCH.tar.gz
 
+# Using "~" in sudo context will get "/root" so wild guess the profile path:
 echo '
 export PATH=$PATH:/usr/local/go/bin
-' >> ~/.profile
+' >> "/home/${SUDO_USER}/.profile"
 
 # adds the cuurent user who is sudo'ing to a docker group:
 groupadd docker
