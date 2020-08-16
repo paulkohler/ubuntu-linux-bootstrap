@@ -87,6 +87,8 @@ usermod -aG docker $SUDO_USER
 service docker restart
 # note that typically you still need a logout/login for docker to work...
 
+sudo apt autoremove -y
+
 cat << EOF
 
 # now....
@@ -110,8 +112,5 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 # also check docker... you may need to login again for groups to sort out
 # try >> docker run hello-world
-
-# also, consider running:
-sudo apt autoremove
 
 EOF
