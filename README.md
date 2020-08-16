@@ -2,6 +2,8 @@
 
 Script for getting a ubuntu box into dev mode from new install to useful in ~10 minutes...
 
+Last run against `Ubuntu 20.04`.
+
 > Do note that it is best-effort and by no means definitive, these things are hard to test! I just update things when I am doing a new build etc and some issues I spot fix, others are missed...
 
 ## Simple Bootstrap
@@ -29,7 +31,7 @@ Reminders about git setup etc
 
 ### Docker
 
-For docker, you will most likely need to log out. Sometimes I have had the "new terminal" be sufficient but typically it is easiest to log out and back in.
+For docker, you will most likely need to log out and log in again for all the user/group settings to apply.
 
 ### VS Code
 
