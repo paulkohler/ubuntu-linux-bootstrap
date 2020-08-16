@@ -99,6 +99,8 @@ code --install-extension dbaeumer.vscode-eslint
 code --install-extension HookyQR.beautify
 code --list-extensions
 
+# git setup:
+
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 
@@ -112,5 +114,8 @@ xclip -sel clip < ~/.ssh/id_rsa.pub
 
 # also check docker... you may need to login again for groups to sort out
 # try >> docker run hello-world
+
+# To use GO straight up, get the path:
+source ~/.profile
 
 EOF
