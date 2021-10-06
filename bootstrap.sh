@@ -69,6 +69,13 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 apt-get update -y
 apt install yarn -y
 
+# Python 3 (ignoring version 2)
+apt install -y python3 python3-pip
+echo 'alias python=python3
+' >> ~/.bash_aliases
+
+apt install -y build-essential libssl-dev libffi-dev python-dev
+
 # Go
 VERSION=1.15
 OS=linux
