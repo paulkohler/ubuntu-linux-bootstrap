@@ -18,7 +18,7 @@ apt-get update -y
 #apt-get upgrade -y
 
 echo "Some essentials..."
-apt-get install -y curl wget git xclip \
+apt-get install -y curl wget git xclip vim \
   apt-transport-https ca-certificates gnupg-agent build-essential software-properties-common
 
 # Chrome setup
