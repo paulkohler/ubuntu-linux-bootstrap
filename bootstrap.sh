@@ -38,15 +38,7 @@ apt-get install -y docker-ce docker-ce-cli containerd.io
 curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
-# ASP.net setup - https://docs.microsoft.com/en-us/dotnet/core/install/linux-ubuntu#2004-
-wget -q https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-
-apt-get update -y
-apt-get install -y apt-transport-https
-apt-get update -y
-apt-get install -y dotnet-sdk-3.1
+# ASP.net setup, see - https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install
 
 # VS Code setup - https://code.visualstudio.com/docs/setup/linux
 snap install --classic code

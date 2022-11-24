@@ -22,7 +22,6 @@ By no means exhaustive, run as root, have a coffee:
 * Chrome
 * Docker, Docker Compose
 * Visual Studio Code
-* .NET Core
 * Go
 * Node/npm/yarn
 
@@ -47,3 +46,13 @@ If you are running this in a VM of sorts you may need to disable the GPU when ru
 ### Go
 
 If using VS Code (assuming you installed the suggested extensions such as `golang.go`) run the helper command "GO: Install/Update tools" to get the rest of the Golang goodies.
+
+### .NET Core
+
+For .NET Core now I would use the scripted install Microsoft provides:
+
+> https://learn.microsoft.com/en-us/dotnet/core/install/linux-scripted-manual#scripted-install
+
+Then you simply run for example:
+
+    ./dotnet-install.sh --version latest
