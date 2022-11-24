@@ -5,6 +5,9 @@ if [[ $(id -u) -ne 0 ]];
   exit 1; 
 fi
 
+# ARCH=amd64
+ARCH=arm64
+
 # https://www.google.com/linuxrepositories/
 # https://www.microsoft.com/net/core#linuxubuntu
 # https://code.visualstudio.com/docs/setup/linux
@@ -12,7 +15,7 @@ fi
 # https://yarnpkg.com/lang/en/docs/install/
 # https://golang.org/doc/install#tarball
 
-echo "Update and upgrade all the things..."
+# echo "Update and upgrade all the things..."
 
 apt-get update -y
 apt-get upgrade -y
@@ -27,7 +30,7 @@ apt install chromium-browser
 # Docker setup - https://docs.docker.com/install/linux/docker-ce/ubuntu/
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   "deb [arch=${ARCH}] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 apt-get update -y
 apt-get install -y docker-ce docker-ce-cli containerd.io
 
@@ -46,13 +49,13 @@ apt-get update -y
 apt-get install -y dotnet-sdk-3.1
 
 # VS Code setup - https://code.visualstudio.com/docs/setup/linux
-sudo snap install --classic code
+snap install --classic code
 
 # Node setup - https://github.com/nodesource/distributions/blob/master/README.md
-curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
 apt-get install -y nodejs
 
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
 apt-get install -y nodejs
 
 # build tools
@@ -70,12 +73,12 @@ apt install -y python3 python3-pip
 echo 'alias python=python3
 ' >> ~/.bash_aliases
 
-apt install -y build-essential libssl-dev libffi-dev python-dev
+apt install -y build-essential libssl-dev libffi-dev python3-dev
+apt install -y  python3-dev
 
 # Go
 VERSION=1.15
 OS=linux
-ARCH=amd64
 wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz -O /tmp/go$VERSION.$OS-$ARCH.tar.gz
 tar -C /usr/local -xzf /tmp/go$VERSION.$OS-$ARCH.tar.gz
 

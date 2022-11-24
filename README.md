@@ -14,6 +14,9 @@ By no means exhaustive, run as root, have a coffee:
 
     sudo ./bootstrap.sh
 
+> Note the option for `ARCH` now.
+> Use `ARCH=arm64` or `ARCH=arm64`.
+
 ## Main Packages
 
 * Chrome
