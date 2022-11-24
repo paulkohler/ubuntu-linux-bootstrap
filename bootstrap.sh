@@ -15,10 +15,10 @@ fi
 echo "Update and upgrade all the things..."
 
 apt-get update -y
-#apt-get upgrade -y
+apt-get upgrade -y
 
 echo "Some essentials..."
-apt-get install -y curl wget git xclip vim \
+apt-get install -y curl wget git xclip vim git-daemon-run \
   apt-transport-https ca-certificates gnupg-agent build-essential software-properties-common
 
 # Chrome setup
