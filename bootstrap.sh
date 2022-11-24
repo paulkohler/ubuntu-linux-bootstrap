@@ -22,11 +22,7 @@ apt-get install -y curl wget git xclip vim git-daemon-run \
   apt-transport-https ca-certificates gnupg-agent build-essential software-properties-common
 
 # Chrome setup
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-dpkg --install google-chrome-stable_current_amd64.deb
-rm google-chrome-stable_current_amd64.deb
+apt install chromium-browser
 
 # Docker setup - https://docs.docker.com/install/linux/docker-ce/ubuntu/
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
