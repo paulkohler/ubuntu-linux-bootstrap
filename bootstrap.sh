@@ -5,8 +5,8 @@ if [[ $(id -u) -ne 0 ]];
   exit 1; 
 fi
 
-# ARCH=amd64
-ARCH=arm64
+ARCH=$(dpkg --print-architecture)
+echo "ARCH: ${ARCH}"
 
 # https://www.google.com/linuxrepositories/
 # https://www.microsoft.com/net/core#linuxubuntu
