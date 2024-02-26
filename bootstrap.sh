@@ -43,11 +43,8 @@ chmod +x /usr/local/bin/docker-compose
 # VS Code setup - https://code.visualstudio.com/docs/setup/linux
 snap install --classic code
 
-# Node setup - https://github.com/nodesource/distributions/blob/master/README.md
-curl -fsSL https://deb.nodesource.com/setup_19.x | sudo -E bash - &&\
-apt-get install -y nodejs
-
-curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash - &&\
+# Node setup - https://github.com/nodesource/distributions
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
 apt-get install -y nodejs
 
 # build tools
